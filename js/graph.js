@@ -3,10 +3,14 @@ import { appendinstitutions } from './institutions.js';
 import { appendPeople } from './people.js';
 import { appendLinks, prepareLinkData, prepareIntraInstitutionLinkData, appendIntraInstitutionLinks } from './links.js';
 
-const getInstitutionColors = (data) => {
-  const institutionColors = {};
-  data.institutions.map( (institution) => institutionColors[institution.id] = institution.linkColor );
-  return institutionColors;
+const arrayToObject = (array, key) => {
+  const object = {};
+
+  array.forEach((el) => {
+    object[el[key]] = el;
+  })
+
+  return object;
 }
 
 export default (svg, container, width, height) => {
@@ -21,18 +25,24 @@ export default (svg, container, width, height) => {
 
   d3.json("data.json", function(error, graph) {
 
-    const institutionColors = getInstitutionColors(graph);
+    const institutionsObject = arrayToObject(graph.institutions, 'id');
+    const clustersObject = arrayToObject(graph.clusters, 'id');
+    const employmentsObject = arrayToObject(graph.employments, 'person');
+
+    const getClusterData = (institution) => {
+      return clustersObject[institutionsObject[institution].cluster];
+    }
 
     if (error) throw error;
 
-    const linkData = prepareLinkData(graph, institutionColors);
+    const linkData = prepareLinkData(graph, getClusterData);
     const links = appendLinks(visualization, linkData);
 
     const intraInstitutionLinkData = prepareIntraInstitutionLinkData(graph);
     const intraInstitutionLinks = appendIntraInstitutionLinks(visualization, intraInstitutionLinkData);
 
-    const institutions = appendinstitutions(svg, visualization, graph, width, height);
-    const nodes = appendPeople(visualization, graph, institutionColors, width, height);
+    const institutions = appendinstitutions(svg, visualization, graph, width, height, clustersObject);
+    const nodes = appendPeople(visualization, graph, width, height, institutionsObject, clustersObject, employmentsObject);
 
     nodes
       .call(d3.drag()

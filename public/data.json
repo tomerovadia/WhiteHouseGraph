@@ -51,15 +51,15 @@
     {"id": "Kushner Companies", "cluster": "Corporation"},
     {"id": "White House", "cluster":"Primary", "useImageFileFill":true}
   ],
-  "clusters": {
-    "Congress": {"linkColor":"darkred", "color":"darkred", "textColor":"white", "textShadowColor":"black"},
-    "Military": {"linkColor":"black", "color":"yellow", "textColor":"white", "textShadowColor":"black"},
-    "Corporation": {"linkColor":"blue", "color":"blue", "textColor":"white", "textShadowColor":"black"},
-    "Media": {"linkColor":"blue", "color":"darkgreen", "textColor":"white", "textShadowColor":"black"},
-    "Academia": {"linkColor":"blue", "color":"orange", "textColor":"white", "textShadowColor":"black"},
-    "Law": {"linkColor":"blue", "color":"purple", "textColor":"white", "textShadowColor":"black"},
-    "Politics": {"linkColor":"blue", "color":"green", "textColor":"white", "textShadowColor":"black"},
-    "Think Tank": {"linkColor":"blue", "color":"magenta", "textColor":"white", "textShadowColor":"black"},
-    "Primary": {"linkColor":"darkblue", "color":"darkblue" , "textColor":"white", "textShadowColor":"black"}
-  }
+  "clusters": [
+    {"id": "Congress", "linkColor":"#757575", "color":"#757575", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Military", "linkColor":"black", "color":"black", "textColor":"#ffd531", "textShadowColor":"white"},
+    {"id": "Corporation", "linkColor":"blue", "color":"blue", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Media", "linkColor":"darkgreen", "color":"darkgreen", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Academia", "linkColor":"darkred", "color":"darkred", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Law", "linkColor":"#795548", "color":"#795548", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Politics", "linkColor":"red", "color":"red", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Think Tank", "linkColor":"#c6c92e", "color":"#c6c92e", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Primary", "linkColor":"darkblue", "color":"darkblue" , "textColor":"white", "textShadowColor":"black"}
+  ]
 }

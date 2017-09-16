@@ -1,8 +1,8 @@
 const d3 = require('d3');
 
-export const prepareLinkData = (data, institutionColors) => {
-  return createCurrentEmploymentLinks(data.people, institutionColors)
-                .concat(createPreviousEmploymentsLinks(data.employments, institutionColors));
+export const prepareLinkData = (data, getClusterData) => {
+  return createCurrentEmploymentLinks(data.people, getClusterData)
+                .concat(createPreviousEmploymentsLinks(data.employments, getClusterData));
 }
 
 export const appendLinks = (visualization, linkData) => {
@@ -21,27 +21,27 @@ export const appendLinks = (visualization, linkData) => {
     return links;
 }
 
-const createCurrentEmploymentLinks = (people, institutionColors) => {
+const createCurrentEmploymentLinks = (people, getClusterData) => {
   return people.map((person) => {
     if(!person.institution) return null;
     return {
       source: person.id,
       target: person.institution,
       value: 30,
-      color: institutionColors[person.institution],
+      color: getClusterData(person.institution).color,
       current: true,
     };
   }).filter((object) => object);
 }
 
 
-const createPreviousEmploymentsLinks = (employments, institutionColors) => {
+const createPreviousEmploymentsLinks = (employments, getClusterData) => {
   return employments.map((employment) => {
     return {
       source: employment.person,
       target: employment.institution,
       value: 80,
-      color: institutionColors[employment.institution],
+      color: getClusterData(employment.institution).color,
       current: false,
     };
   })
@@ -71,7 +71,6 @@ export const prepareIntraInstitutionLinkData = (data) => {
             source: institution,
             target: otherInstitution,
             value: 60,
-            color: 'purple',
           });
         }
       }
