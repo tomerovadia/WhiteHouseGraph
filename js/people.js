@@ -1,7 +1,7 @@
 const d3 = require('d3');
 
 
-export const appendPeople = (visualization, data, publicationColors, width, height) => {
+export const appendPeople = (visualization, data, institutionColors, width, height) => {
 
   const nodes = visualization
       .selectAll("g.nodes")
@@ -14,15 +14,16 @@ export const appendPeople = (visualization, data, publicationColors, width, heig
         .attr("class", "nodes")
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
-  const circles = appendCircles(nodes, publicationColors);
+  const circles = appendCircles(nodes, institutionColors);
 
-  setListenersForCircleHighlighting(nodes, publicationColors);
+  setListenersForCircleHighlighting(nodes, institutionColors);
 
   // Hover text
   circles.append("title")
             .text(function(d) { return d.id; });
 
-  appendTextToPeople(nodes);
+  appendNameToPeople(nodes);
+  appendTitleToPeople(nodes);
 
   return nodes;
 }
@@ -30,30 +31,30 @@ export const appendPeople = (visualization, data, publicationColors, width, heig
 
 
 
-const appendCircles = (nodes, publicationColors) => {
+const appendCircles = (nodes, institutionColors) => {
   return nodes
       .append("circle")
         .attr("r", 10)
-        .style("stroke", function(d) { return publicationColors[d.publication]; })
+        .style("stroke", function(d) { return institutionColors[d.institution]; })
         .style("stroke-width", 1.5)
         .attr("fill", function(d){ return `url('#${d.id}')` } );
 }
 
 
 
-const setListenersForCircleHighlighting = (nodes, publicationColors) => {
+const setListenersForCircleHighlighting = (nodes, institutionColors) => {
   nodes
       .on("mouseover", function(){
         d3.select(this).select('circle').style("stroke", "yellow")
       })
       .on("mouseout", function(){
-        d3.select(this).select('circle').style("stroke", (d) => publicationColors[d.publication] )
+        d3.select(this).select('circle').style("stroke", (d) => institutionColors[d.institution] )
       });
 }
 
 
 
-const appendTextToPeople = (nodes) => {
+const appendNameToPeople = (nodes) => {
   return nodes
        .append('text')
          .text((d) => d.id)
@@ -63,4 +64,16 @@ const appendTextToPeople = (nodes) => {
          .attr("text-anchor", "middle")
          .style("text-shadow", "1px 1px 2px white")
          .attr("transform", "translate(0,20)");
+}
+
+const appendTitleToPeople = (nodes) => {
+  return nodes
+       .append('text')
+         .text((d) => d.title)
+         .style('font-family', 'Roboto')
+         .style("font-size", "8px")
+         .style("font-weight", "500")
+         .attr("text-anchor", "middle")
+         .style("text-shadow", "1px 1px 2px white")
+         .attr("transform", "translate(0,30)");
 }

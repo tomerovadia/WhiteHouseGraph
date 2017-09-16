@@ -1,13 +1,15 @@
 const d3 = require('d3');
 
 export const appendinstitutions = (svg, visualization, data, width, height) => {
-  const institutions = visualization.selectAll('g.publication')
+
+
+  const institutions = visualization.selectAll('g.institution')
       .data(data.institutions, (d) => d.id)
       .enter()
       .append('g')
       .attr('id', (d) => d.id)
-      .classed('publication', true)
-      .attr('id', (d) => `${d.id}Publication`)
+      .classed('institution', true)
+      .attr('id', (d) => `${d.id}Institution`)
       .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
       // .attr('fx', 2500)
       // .attr('fy', 2500)
@@ -26,17 +28,35 @@ export const appendinstitutions = (svg, visualization, data, width, height) => {
 
 const appendCirclesToinstitutions = (institutions) => {
   return institutions
-      .append('circle')
-      .style('fill', (d) => d.color)
-      .attr('r', 30)
-      .style('stroke', 'black')
-      .style('stroke-width', 2)
+      .append('ellipse')
+      // .style('fill', (d) => d.color)
+      .attr("fill", function(d){
+        if(d.color) return d.color;
+        return `url('#${d.id}')`;
+      } )
+      .attr('rx', (d) => {
+        if(d.id === 'White House') return 120;
+        return 30;
+      })
+      .attr('ry', (d) => {
+        if(d.id === 'White House') return 81.75;
+        return 30;
+      })
+      .style('stroke', (d) => {
+        if(!(d.id === 'White House')) return 'black';
+      })
+      .style('stroke-width', (d) => {
+        if(d.id === 'White House') return -5;
+        return 2;
+      })
       .attr("fill", function(d){ return `url('#${d.id}')` } );
 }
 
 const appendTextToinstitutions = (institutions) => {
   return institutions.append('text')
-      .text((d) => d.id)
+      .text((d) => {
+        if(!(d.id === 'White House')) return d.id;
+      })
       .style('font-family', 'Arial')
       .style("font-size", "9px")
       .style("fill", (d) => d.textColor || "white")
@@ -50,7 +70,7 @@ const prepareCircleImages = (svg, data) => {
 
   const patterns = defs
       .selectAll('pattern')
-      .data(data.people)
+      .data(data.people.concat(data.institutions))
       .enter()
       .append("pattern")
         .attr("id", function(d){ return d.id } )
@@ -66,5 +86,10 @@ const prepareCircleImages = (svg, data) => {
         .attr("preserveAspectRatio", "none")
         .attr("height", 100)
         .attr("width", 100)
-        .attr("xlink:href", function(d){ return `../mugshots/${d.id}.jpg`});
+        // .attr("xlink:href", function(d){ return d.img_url});
+        .attr("xlink:href", function(d){
+          if(d.img_url) return d.img_url;
+          if(d.useImageFileFill) return `../mugshots/${d.id}.jpg`;
+
+        });
 }

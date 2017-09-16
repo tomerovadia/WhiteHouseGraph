@@ -1,8 +1,8 @@
 const d3 = require('d3');
 
-export const prepareLinkData = (data, publicationColors) => {
-  return createCurrentEmploymentLinks(data.people, publicationColors)
-                .concat(createPreviousEmploymentsLinks(data.employments, publicationColors));
+export const prepareLinkData = (data, institutionColors) => {
+  return createCurrentEmploymentLinks(data.people, institutionColors)
+                .concat(createPreviousEmploymentsLinks(data.employments, institutionColors));
 }
 
 export const appendLinks = (visualization, linkData) => {
@@ -22,26 +22,26 @@ export const appendLinks = (visualization, linkData) => {
 }
 
 
-const createCurrentEmploymentLinks = (reporters, publicationColors) => {
-  return reporters.map((reporter) => {
+const createCurrentEmploymentLinks = (people, institutionColors) => {
+  return people.map((person) => {
     return {
-      source: reporter.id,
-      target: reporter.publication,
+      source: person.id,
+      target: person.institution,
       value: 30,
-      color: publicationColors[reporter.publication],
+      color: institutionColors[person.institution],
       current: true,
     };
   });
 }
 
 
-const createPreviousEmploymentsLinks = (employments, publicationColors) => {
+const createPreviousEmploymentsLinks = (employments, institutionColors) => {
   return employments.map((employment) => {
     return {
-      source: employment.reporter,
-      target: employment.publication,
+      source: employment.person,
+      target: employment.institution,
       value: 80,
-      color: publicationColors[employment.publication],
+      color: institutionColors[employment.institution],
       current: false,
     };
   })

@@ -1,6 +1,6 @@
 const d3 = require('d3');
 import { appendinstitutions } from './institutions.js';
-import { appendPeople } from './journalists.js';
+import { appendPeople } from './people.js';
 import { appendLinks, prepareLinkData } from './links.js';
 
 const getPublicationColors = (data) => {
@@ -16,7 +16,7 @@ export default (svg, container, width, height) => {
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }) )
-      .force("charge", d3.forceManyBody().strength(-3000).distanceMin(15) )
+      .force("charge", d3.forceManyBody().strength(-15000).distanceMin(15) )
       .force("center", d3.forceCenter(width/2, height/2) );
 
   d3.json("data.json", function(error, graph) {
