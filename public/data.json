@@ -9,7 +9,7 @@
     {"id": "Jared Kushner", "title":"Interior Secretary", "institution": "White House", "useImageFileFill":true},
     {"id": "Ryan Zinke", "title":"Interior Secretary", "institution": "White House", "useImageFileFill":true},
     {"id": "Tom Bossert", "title":"Homeland Security Adviser", "institution": "White House", "useImageFileFill":true},
-    {"id": "Kellyanne Conway", "title":"Couselor", "institution": "White House", "useImageFileFill":true},
+    {"id": "Kellyanne Conway", "title":"Counselor", "institution": "White House", "useImageFileFill":true},
     {"id": "Carl Icahn", "title":"Regulatory Czar", "institution": "White House", "useImageFileFill":true},
     {"id": "Don McGahn", "title":"White House Counsel", "institution": "White House", "useImageFileFill":true},
     {"id": "Peter Navarro", "title":"Trade Czar", "institution": "White House", "useImageFileFill":true},
@@ -35,7 +35,8 @@
     {"person": "Peter Navarro", "institution": "University of CA"},
     {"person": "Tom Bossert", "institution": "Atlantic Council"},
     {"person": "Kellyanne Conway", "institution": "Political Consulting"},
-    {"person": "Jared Kushner", "institution": "Kushner Companies"}
+    {"person": "Jared Kushner", "institution": "Kushner Companies"},
+    {"person": "Reince Priebus", "institution": "White House"}
   ],
   "institutions": [
     {"id": "Breitbart", "cluster": "Media"},
