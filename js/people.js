@@ -8,8 +8,6 @@ export const appendPeople = (visualization, data, width, height, employmentsObje
       .data(data.people, (d) => d.id)
       .enter()
       .append("g")
-        // .attr('fx', 2500)
-        // .attr('fy', 2500)
         .attr('id', (d) => `${d.id.split(' ').join('')}Node`)
         .attr("class", "nodes")
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
@@ -39,7 +37,13 @@ const appendCircles = (nodes, data, employmentsObject, getClusterData) => {
           return calculateStrokeColor(d, employmentsObject, getClusterData);
         })
         .style("stroke-width", 1.75)
-        .attr("fill", function(d){ return `url('#${d.id}')` } );
+        .attr("fill", function(d){ return `url('#${d.id}')` } )
+        .attr("fill-opacity", (d) => {
+          return d.institution ? 1 : 0.7;
+        })
+        .attr("stroke-opacity", (d) => {
+          return d.institution ? 1 : 0.7;
+        });
 }
 
 

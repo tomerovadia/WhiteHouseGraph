@@ -32,6 +32,7 @@ export default (svg, container, width, height) => {
     const institutionsObject = arrayToObject(graph.institutions, 'id');
     const clustersObject = arrayToObject(graph.clusters, 'id');
     const employmentsObject = arrayToObject(graph.employments, 'person');
+    const peopleObject = arrayToObject(graph.people, 'id');
 
     const getClusterData = (institution) => {
       return clustersObject[institutionsObject[institution].cluster];
@@ -40,7 +41,7 @@ export default (svg, container, width, height) => {
     if (error) throw error;
 
     const linkData = prepareLinkData(graph, getClusterData);
-    const links = appendLinks(visualization, linkData);
+    const links = appendLinks(visualization, linkData, peopleObject);
 
     const intraInstitutionLinkData = prepareIntraInstitutionLinkData(graph);
     const intraInstitutionLinks = appendIntraInstitutionLinks(visualization, intraInstitutionLinkData);

@@ -1,11 +1,11 @@
 const d3 = require('d3');
 
-export const prepareLinkData = (data, getClusterData) => {
+export const prepareLinkData = (data, getClusterData, peopleObject) => {
   return createCurrentEmploymentLinks(data.people, getClusterData)
                 .concat(createPreviousEmploymentsLinks(data.employments, getClusterData));
 }
 
-export const appendLinks = (visualization, linkData) => {
+export const appendLinks = (visualization, linkData, peopleObject) => {
   const links = visualization.append("g")
       .attr("class", "links")
     .selectAll("line")
@@ -14,6 +14,9 @@ export const appendLinks = (visualization, linkData) => {
       .attr("stroke-width", calculateStrokeWidth)
       .attr('class', calculateStrokeType)
       .style("stroke", (d) => d.color)
+      .style('stroke-opacity', (d) => {
+        return peopleObject[d.source].institution ? 1 : 0.2;
+      })
       .attr('id', (d) => {
         return `${d.source.split(' ').join('')}${d.target.split(' ').join('')}Link`;
       });
