@@ -12,9 +12,7 @@
     {"person": "Stephen K. Bannon", "institution": "Breitbart"}
   ],
   "institutions": [
-    {"id": "Breitbart", "color": "red", "textColor":"black", "textShadowColor":"white"},
-    {"id": "White House", "color": "gray", "textColor":"white", "textShadowColor":"black", "useImageFileFill":true}
-  ],
-  "mainInstitution": [
+    {"id": "Breitbart", "linkColor":"red", "color": "red", "textColor":"white", "textShadowColor":"black"},
+    {"id": "White House", "linkColor":"gray", "textColor":"white", "textShadowColor":"black", "useImageFileFill":true}
   ]
 }

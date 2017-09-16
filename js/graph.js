@@ -3,10 +3,10 @@ import { appendinstitutions } from './institutions.js';
 import { appendPeople } from './people.js';
 import { appendLinks, prepareLinkData } from './links.js';
 
-const getPublicationColors = (data) => {
-  const publicationColors = {};
-  data.institutions.map( (publication) => publicationColors[publication.id] = publication.color );
-  return publicationColors;
+const getInstitutionColors = (data) => {
+  const institutionColors = {};
+  data.institutions.map( (institution) => institutionColors[institution.id] = institution.linkColor );
+  return institutionColors;
 }
 
 export default (svg, container, width, height) => {
@@ -21,15 +21,15 @@ export default (svg, container, width, height) => {
 
   d3.json("data.json", function(error, graph) {
 
-    const publicationColors = getPublicationColors(graph);
+    const institutionColors = getInstitutionColors(graph);
 
     if (error) throw error;
 
-    const linkData = prepareLinkData(graph, publicationColors);
+    const linkData = prepareLinkData(graph, institutionColors);
 
     const links = appendLinks(visualization, linkData);
     const institutions = appendinstitutions(svg, visualization, graph, width, height);
-    const nodes = appendPeople(visualization, graph, publicationColors, width, height);
+    const nodes = appendPeople(visualization, graph, institutionColors, width, height);
 
     nodes
       .call(d3.drag()

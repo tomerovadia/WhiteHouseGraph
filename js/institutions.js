@@ -48,8 +48,7 @@ const appendCirclesToinstitutions = (institutions) => {
       .style('stroke-width', (d) => {
         if(d.id === 'White House') return -5;
         return 2;
-      })
-      .attr("fill", function(d){ return `url('#${d.id}')` } );
+      });
 }
 
 const appendTextToinstitutions = (institutions) => {
