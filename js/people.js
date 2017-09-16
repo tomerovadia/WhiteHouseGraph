@@ -16,7 +16,7 @@ export const appendPeople = (visualization, data, width, height, employmentsObje
 
   const circles = appendCircles(nodes, data, employmentsObject, getClusterData);
 
-  setListenersForCircleHighlighting(nodes, getClusterData);
+  setListenersForCircleHighlighting(nodes, employmentsObject, getClusterData);
 
   // Hover text
   circles.append("title")
@@ -48,24 +48,24 @@ const appendCircles = (nodes, data, employmentsObject, getClusterData) => {
 // former white house = gray
 // current white house no prior affiliation: blue
 
-const calculateStrokeColor = (d, clustersObject, employmentsObject) => {
+const calculateStrokeColor = (d, employmentsObject, getClusterData) => {
   if(!d.institution) return 'gray';
   const mostRecentPrevEmployerObject = employmentsObject[d.id];
   if(!mostRecentPrevEmployerObject) return 'darkblue';
   const mostRecentEmployer = mostRecentPrevEmployerObject.institution;
-  return cluster ? getClusterData(mostRecentEmployer).color : 'gray';
+  return getClusterData(mostRecentEmployer).color;
 }
 
 
 
-const setListenersForCircleHighlighting = (nodes, getClusterData) => {
+const setListenersForCircleHighlighting = (nodes, employmentsObject, getClusterData) => {
   nodes
       .on("mouseover", function(){
         d3.select(this).select('circle').style("stroke", "yellow")
       })
       .on("mouseout", function(){
         d3.select(this).select('circle').style("stroke", (d) => {
-          return getClusterData(d.institution).color;
+          return calculateStrokeColor(d, employmentsObject, getClusterData);
         })
       });
 }
