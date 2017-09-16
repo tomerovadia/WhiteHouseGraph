@@ -34,6 +34,7 @@
     {"person": "Sean Spicer", "institution": "White House"},
     {"person": "Peter Navarro", "institution": "University of CA"},
     {"person": "Tom Bossert", "institution": "Atlantic Council"},
+    {"person": "Kellyanne Conway", "institution": "Political Consulting"},
     {"person": "Jared Kushner", "institution": "Kushner Companies"}
   ],
   "institutions": [
@@ -49,6 +50,7 @@
     {"id": "University of CA", "cluster": "Academia"},
     {"id": "Atlantic Council", "cluster": "Think Tank"},
     {"id": "Kushner Companies", "cluster": "Corporation"},
+    {"id": "Political Consulting", "cluster": "Politics"},
     {"id": "White House", "cluster":"Primary", "useImageFileFill":true}
   ],
   "clusters": [
