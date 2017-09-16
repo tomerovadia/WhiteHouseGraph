@@ -83,6 +83,9 @@ const appendNameToPeople = (nodes) => {
          .style('font-family', 'Roboto')
          .style("font-size", "9px")
          .style("font-weight", "700")
+         .style("opacity", (d) => {
+           return d.institution ? 1 : 0.5;
+         })
          .attr("text-anchor", "middle")
          .style("text-shadow", "1px 1px 2px white")
          .attr("transform", "translate(0,20)");
@@ -94,6 +97,9 @@ const appendTitleToPeople = (nodes) => {
          .text((d) => d.title)
          .style('font-family', 'Roboto')
          .style("font-size", "8px")
+         .style("opacity", (d) => {
+           return d.institution ? 1 : 0.5;
+         })
          .style("font-weight", "500")
          .attr("text-anchor", "middle")
          .style("text-shadow", "1px 1px 2px white")
