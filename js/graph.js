@@ -25,7 +25,7 @@ export default (svg, container, width, height) => {
           return d.id === 'White House' ? -15000 : -5000;
         })
         .distanceMin(15) )
-      .force("center", d3.forceCenter(width/2, height/2) );
+      .force("center", d3.forceCenter(width/2 + 200, height/2 - 100) );
 
   d3.json("data.json", function(error, graph) {
 
