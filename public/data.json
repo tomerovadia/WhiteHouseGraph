@@ -8,12 +8,12 @@
     {"id": "Reince Priebus", "title":"Chief of Staff", "institution": "White House"},
     {"id": "Jared Kushner", "title":"Interior Secretary", "institution": "White House"},
     {"id": "Ryan Zinke", "title":"Interior Secretary", "institution": "White House"},
-    {"id": "Thomas P. Bossert", "title":"Homeland Security Adviser", "institution": "White House"},
+    {"id": "Tom Bossert", "title":"Homeland Security Adviser", "institution": "White House"},
     {"id": "Kellyanne Conway", "title":"Couselor", "institution": "White House"},
     {"id": "Carl Icahn", "title":"Regulatory Czar", "institution": "White House"},
     {"id": "Don McGahn", "title":"White House Counsel", "institution": "White House"},
     {"id": "Peter Navarro", "title":"Trade Czar", "institution": "White House"},
-    {"id": "Sean Spicer", "title":"Press Secretary", "institution": "White House"},
+    {"id": "Sean Spicer", "title":"Press Secretary"},
     {"id": "H.R. McMaster", "title":"National Security Adviser", "institution": "White House"},
     {"id": "Michael T. Flynn", "title":"National Security Adviser"}
   ],
@@ -29,7 +29,12 @@
     {"person": "Carl Icahn", "institution": "Icahn Enterprises"},
     {"person": "Ryan Zinke", "institution": "U.S. House"},
     {"person": "H.R. McMaster", "institution": "U.S. Military"},
-    {"person": "Don McGahn", "institution": "Jones Day"}
+    {"person": "Don McGahn", "institution": "Jones Day"},
+    {"person": "Sean Spicer", "institution": "RNC"},
+    {"person": "Sean Spicer", "institution": "White House"},
+    {"person": "Peter Navarro", "institution": "University of CA"},
+    {"person": "Tom Bossert", "institution": "Atlantic Council"},
+    {"person": "Jared Kushner", "institution": "Kushner Companies"}
   ],
   "institutions": [
     {"id": "Breitbart", "linkColor":"red", "color": "red", "textColor":"white", "textShadowColor":"black"},
@@ -41,6 +46,9 @@
     {"id": "RNC", "linkColor":"red", "color":"red", "textColor":"blue", "textShadowColor":"lightblue"},
     {"id": "Goldman Sachs", "linkColor":"#64a8f0", "color":"#64a8f0", "textColor":"white", "textShadowColor":"gray"},
     {"id": "Icahn Enterprises", "linkColor":"#31699c", "color":"#31699c", "textColor":"white", "textShadowColor":"gray"},
-    {"id": "Jones Day", "linkColor":"#15559c", "color":"#15559c", "textColor":"white", "textShadowColor":"gray"}
+    {"id": "Jones Day", "linkColor":"#15559c", "color":"#15559c", "textColor":"white", "textShadowColor":"gray"},
+    {"id": "University of CA", "linkColor":"#8a673f", "color":"#8a673f", "textColor":"white", "textShadowColor":"#003663"},
+    {"id": "Atlantic Council", "linkColor":"#015498", "color":"#015498", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Kushner Companies", "linkColor":"black", "color":"black", "textColor":"white", "textShadowColor":"black"}
   ]
 }

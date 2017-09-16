@@ -18,9 +18,10 @@ export const appendLinks = (visualization, linkData) => {
         return `${d.source.split(' ').join('')}${d.target.split(' ').join('')}Link`;
       });
 
+    
+
     return links;
 }
-
 
 const createCurrentEmploymentLinks = (people, institutionColors) => {
   return people.map((person) => {
