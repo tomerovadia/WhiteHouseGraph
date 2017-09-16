@@ -42,7 +42,7 @@ export default (svg, container, width, height) => {
     const intraInstitutionLinks = appendIntraInstitutionLinks(visualization, intraInstitutionLinkData);
 
     const institutions = appendinstitutions(svg, visualization, graph, width, height, clustersObject);
-    const nodes = appendPeople(visualization, graph, width, height, institutionsObject, clustersObject, employmentsObject);
+    const nodes = appendPeople(visualization, graph, width, height, institutionsObject, clustersObject, employmentsObject, getClusterData);
 
     nodes
       .call(d3.drag()

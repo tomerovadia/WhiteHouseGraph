@@ -1,7 +1,7 @@
 const d3 = require('d3');
 
 
-export const appendPeople = (visualization, data, width, height, institutionsObject, clustersObject, employmentsObject) => {
+export const appendPeople = (visualization, data, width, height, employmentsObject, getClusterData) => {
 
   const nodes = visualization
       .selectAll("g.nodes")
@@ -14,9 +14,9 @@ export const appendPeople = (visualization, data, width, height, institutionsObj
         .attr("class", "nodes")
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
-  const circles = appendCircles(nodes, data, institutionsObject, clustersObject, employmentsObject);
+  const circles = appendCircles(nodes, data, employmentsObject, getClusterData);
 
-  setListenersForCircleHighlighting(nodes, institutionsObject);
+  setListenersForCircleHighlighting(nodes);
 
   // Hover text
   circles.append("title")
@@ -30,25 +30,24 @@ export const appendPeople = (visualization, data, width, height, institutionsObj
 
 
 
-const appendCircles = (nodes, data, institutionsObject, clustersObject, employmentsObject) => {
+const appendCircles = (nodes, data, employmentsObject, getClusterData) => {
 
   return nodes
       .append("circle")
         .attr("r", 10)
         .style("stroke", function(d) {
-          return calculateStrokeColor(d, institutionsObject, clustersObject, employmentsObject);
+          return calculateStrokeColor(d, employmentsObject, getClusterData);
         })
         .style("stroke-width", 1.75)
         .attr("fill", function(d){ return `url('#${d.id}')` } );
 }
 
-const calculateStrokeColor = (d, institutionsObject, clustersObject, employmentsObject) => {
+const calculateStrokeColor = (d, clustersObject, employmentsObject) => {
   if(!d.institution) return 'gray';
   const mostRecentPrevEmployerObject = employmentsObject[d.id];
   if(!mostRecentPrevEmployerObject) return 'darkblue';
   const mostRecentEmployer = mostRecentPrevEmployerObject.institution;
-  const cluster = institutionsObject[mostRecentEmployer].cluster;
-  return cluster ? clustersObject[cluster].color : 'gray';
+  return cluster ? getClusterData(mostRecentEmployer).color : 'gray';
 }
 
 
@@ -58,7 +57,7 @@ const calculateStrokeColor = (d, institutionsObject, clustersObject, employments
 
 
 
-const setListenersForCircleHighlighting = (nodes, institutionsObject) => {
+const setListenersForCircleHighlighting = (nodes) => {
   nodes
       .on("mouseover", function(){
         d3.select(this).select('circle').style("stroke", "yellow")
