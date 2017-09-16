@@ -15,7 +15,13 @@
     {"id": "Peter Navarro", "title":"Trade Czar", "institution": "White House", "useImageFileFill":true},
     {"id": "Sean Spicer", "title":"Press Secretary", "useImageFileFill":true},
     {"id": "H.R. McMaster", "title":"National Security Adviser", "institution": "White House", "useImageFileFill":true},
-    {"id": "Michael T. Flynn", "title":"National Security Adviser", "useImageFileFill":true}
+    {"id": "Michael T. Flynn", "title":"National Security Adviser", "useImageFileFill":true},
+    {"id": "Sonny Perdue", "title":"Agriculture Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Wilbur Ross", "title":"Commerce Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "R. Alexander Acosta", "title":"Labor Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Tom Price", "title":"H.H.S. Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Ben Carson", "title":"H.U.D. Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Kevin Hassett", "title":"Chair of the Council of Economic Advisers", "institution": "White House", "useImageFileFill":true}
   ],
   "employments": [
     {"person": "Steve Bannon", "institution": "Breitbart"},
@@ -28,20 +34,27 @@
     {"person": "Michael T. Flynn", "institution": "White House"},
     {"person": "Carl Icahn", "institution": "Icahn Enterprises"},
     {"person": "Ryan Zinke", "institution": "U.S. House"},
+    {"person": "Tom Price", "institution": "U.S. House"},
     {"person": "H.R. McMaster", "institution": "U.S. Military"},
     {"person": "Don McGahn", "institution": "Jones Day"},
     {"person": "Sean Spicer", "institution": "RNC"},
     {"person": "Sean Spicer", "institution": "White House"},
+    {"person": "Ben Carson", "institution": "Johns Hopkins Hospital"},
     {"person": "Peter Navarro", "institution": "University of CA"},
     {"person": "Tom Bossert", "institution": "Atlantic Council"},
     {"person": "Kellyanne Conway", "institution": "Political Consulting"},
     {"person": "Jared Kushner", "institution": "Kushner Companies"},
-    {"person": "Reince Priebus", "institution": "White House"}
+    {"person": "Reince Priebus", "institution": "White House"},
+    {"person": "Sonny Perdue", "institution": "State Government"},
+    {"person": "Wilbur Ross", "institution": "WL Ross & Co."},
+    {"person": "R. Alexander Acosta", "institution": "U.S. Attorney"},
+    {"person": "Kevin Hassett", "institution": "American Enterprise Institute"}
   ],
   "institutions": [
     {"id": "Breitbart", "cluster": "Media"},
     {"id": "U.S. Senate", "cluster": "Congress"},
     {"id": "U.S. House", "cluster": "Congress"},
+    {"id": "State Government", "cluster": "Congress"},
     {"id": "U.S. Military", "cluster": "Military"},
     {"id": "Exxon", "cluster": "Corporation"},
     {"id": "RNC", "cluster": "Politics"},
@@ -50,8 +63,12 @@
     {"id": "Jones Day", "cluster": "Law"},
     {"id": "University of CA", "cluster": "Academia"},
     {"id": "Atlantic Council", "cluster": "Think Tank"},
+    {"id": "American Enterprise Institute", "cluster": "Think Tank"},
     {"id": "Kushner Companies", "cluster": "Corporation"},
     {"id": "Political Consulting", "cluster": "Politics"},
+    {"id": "WL Ross & Co.", "cluster": "Corporation"},
+    {"id": "Johns Hopkins Hospital", "cluster": "Medical"},
+    {"id": "U.S. Attorney", "cluster": "Law"},
     {"id": "White House", "cluster":"Primary", "useImageFileFill":true}
   ],
   "clusters": [
@@ -63,6 +80,7 @@
     {"id": "Law", "linkColor":"#795548", "color":"#795548", "textColor":"white", "textShadowColor":"black"},
     {"id": "Politics", "linkColor":"red", "color":"red", "textColor":"white", "textShadowColor":"black"},
     {"id": "Think Tank", "linkColor":"#c6c92e", "color":"#c6c92e", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Medical", "linkColor":"lightblue", "color":"lightblue" , "textColor":"black", "textShadowColor":"white"},
     {"id": "Primary", "linkColor":"darkblue", "color":"darkblue" , "textColor":"white", "textShadowColor":"black"}
   ]
 }

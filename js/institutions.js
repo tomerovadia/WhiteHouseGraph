@@ -1,5 +1,7 @@
 const d3 = require('d3');
 
+const institutionRadius = 37;
+
 export const appendinstitutions = (svg, visualization, data, width, height, clustersObject) => {
 
 
@@ -28,10 +30,10 @@ const appendCirclesToInstitutions = (institutions, clustersObject) => {
         return d.useImageFileFill ? `url('#${d.id}')` : clusterColor;
       } )
       .attr('rx', (d) => {
-        return d.id === 'White House' ? 120 : 37;
+        return d.id === 'White House' ? 120 : institutionRadius;
       })
       .attr('ry', (d) => {
-        return d.id === 'White House' ? 81.75 : 37;
+        return d.id === 'White House' ? 81.75 : institutionRadius;
       })
       .style('stroke', (d) => {
         if(!(d.id === 'White House')) return 'black';
@@ -43,16 +45,31 @@ const appendCirclesToInstitutions = (institutions, clustersObject) => {
 }
 
 const appendTextToinstitutions = (institutions) => {
-  return institutions.append('text')
-      .text((d) => {
+  return institutions
+      .append('foreignObject')
+      .attr('width', institutionRadius*2)
+      .attr('height', institutionRadius*2)
+      .attr('x', institutionRadius*-1)
+      .attr('y', institutionRadius*-1)
+      .append('xhtml:div')
+      .style('width', `${institutionRadius*2}px`)
+      .style('height', `${institutionRadius*2}px`)
+      .style("text-align", "center")
+      .style("border-radius", "100%")
+      .style("display", "flex")
+      .style("align-items", "center")
+      .style("justify-content", "center")
+      .append('xhtml:span')
+      .style('line-height', 'normal')
+      .style('display', 'block')
+      .style('font-family', 'Roboto')
+      .style("font-size", "11px")
+      .style("color", (d) => d.textColor || "white")
+      .style("font-weight", "600")
+      .style("text-shadow", (d) => d.textShadowColor ? `1px 1px 2px ${d.textShadowColor}` : "1px 1px 2px black")
+      .html((d) => {
         if(!(d.id === 'White House')) return d.id;
       })
-      .style('font-family', 'Arial')
-      .style("font-size", "9px")
-      .style("fill", (d) => d.textColor || "white")
-      .attr("text-anchor", "middle")
-      .style("font-weight", "600")
-      .style("text-shadow", (d) => d.textShadowColor ? `1px 1px 2px ${d.textShadowColor}` : "1px 1px 2px black");
 }
 
 const prepareCircleImages = (svg, data) => {
