@@ -1,7 +1,7 @@
 const d3 = require('d3');
 
 export const prepareLinkData = (data, publicationColors) => {
-  return createCurrentEmploymentLinks(data.reporters, publicationColors)
+  return createCurrentEmploymentLinks(data.people, publicationColors)
                 .concat(createPreviousEmploymentsLinks(data.employments, publicationColors));
 }
 

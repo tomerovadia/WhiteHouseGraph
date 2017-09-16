@@ -1,6 +1,6 @@
 const d3 = require('d3');
 import { appendinstitutions } from './institutions.js';
-import { appendJournalists } from './journalists.js';
+import { appendPeople } from './journalists.js';
 import { appendLinks, prepareLinkData } from './links.js';
 
 const getPublicationColors = (data) => {
@@ -29,7 +29,7 @@ export default (svg, container, width, height) => {
 
     const links = appendLinks(visualization, linkData);
     const institutions = appendinstitutions(svg, visualization, graph, width, height);
-    const nodes = appendJournalists(visualization, graph, publicationColors, width, height);
+    const nodes = appendPeople(visualization, graph, publicationColors, width, height);
 
     nodes
       .call(d3.drag()
@@ -44,7 +44,7 @@ export default (svg, container, width, height) => {
           .on("end", nodedragended));
 
     simulation
-        .nodes(graph.reporters.concat(graph.institutions))
+        .nodes(graph.people.concat(graph.institutions))
         .on("tick", ticked);
 
     simulation

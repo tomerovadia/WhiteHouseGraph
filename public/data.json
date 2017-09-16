@@ -1,5 +1,5 @@
 {
-  "reporters": [
+  "people": [
     {"id": "Anna Palmer", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg"},
     {"id": "Jake Sherman", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/2014/02/25/jakeheadshot_288.jpg"},
     {"id": "Alex Isenstadt", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/2014/08/15/20140813js_alex_isenstadt_015.jpg"},

@@ -1,11 +1,11 @@
 const d3 = require('d3');
 
 
-export const appendJournalists = (visualization, data, publicationColors, width, height) => {
+export const appendPeople = (visualization, data, publicationColors, width, height) => {
 
   const nodes = visualization
       .selectAll("g.nodes")
-      .data(data.reporters, (d) => d.id)
+      .data(data.people, (d) => d.id)
       .enter()
       .append("g")
         // .attr('fx', 2500)
@@ -22,7 +22,7 @@ export const appendJournalists = (visualization, data, publicationColors, width,
   circles.append("title")
             .text(function(d) { return d.id; });
 
-  appendTextToJournalists(nodes);
+  appendTextToPeople(nodes);
 
   return nodes;
 }
@@ -53,7 +53,7 @@ const setListenersForCircleHighlighting = (nodes, publicationColors) => {
 
 
 
-const appendTextToJournalists = (nodes) => {
+const appendTextToPeople = (nodes) => {
   return nodes
        .append('text')
          .text((d) => d.id)
