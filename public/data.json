@@ -6,13 +6,41 @@
     {"id": "Rex W. Tillerson", "title":"Secretary of State", "institution": "White House"},
     {"id": "Stephen K. Bannon", "title":"Chief Strategist", "institution": "White House"},
     {"id": "Reince Priebus", "title":"Chief of Staff", "institution": "White House"},
-    {"id": "Ryan Zinke", "title":"Interior Secretary", "institution": "White House"}
+    {"id": "Jared Kushner", "title":"Interior Secretary", "institution": "White House"},
+    {"id": "Ryan Zinke", "title":"Interior Secretary", "institution": "White House"},
+    {"id": "Thomas P. Bossert", "title":"Homeland Security Adviser", "institution": "White House"},
+    {"id": "Kellyanne Conway", "title":"Couselor", "institution": "White House"},
+    {"id": "Carl Icahn", "title":"Regulatory Czar", "institution": "White House"},
+    {"id": "Don McGahn", "title":"White House Counsel", "institution": "White House"},
+    {"id": "Peter Navarro", "title":"Trade Czar", "institution": "White House"},
+    {"id": "Sean Spicer", "title":"Press Secretary", "institution": "White House"},
+    {"id": "H.R. McMaster", "title":"National Security Adviser", "institution": "White House"},
+    {"id": "Michael T. Flynn", "title":"National Security Adviser"}
   ],
   "employments": [
-    {"person": "Stephen K. Bannon", "institution": "Breitbart"}
+    {"person": "Stephen K. Bannon", "institution": "Breitbart"},
+    {"person": "Jeff Sessions", "institution": "U.S. Senate"},
+    {"person": "James Mattis", "institution": "U.S. Military"},
+    {"person": "Rex W. Tillerson", "institution": "Exxon"},
+    {"person": "Reince Priebus", "institution": "RNC"},
+    {"person": "Steven Mnuchin", "institution": "Goldman Sachs"},
+    {"person": "Michael T. Flynn", "institution": "U.S. Military"},
+    {"person": "Michael T. Flynn", "institution": "White House"},
+    {"person": "Carl Icahn", "institution": "Icahn Enterprises"},
+    {"person": "Ryan Zinke", "institution": "U.S. House"},
+    {"person": "H.R. McMaster", "institution": "U.S. Military"},
+    {"person": "Don McGahn", "institution": "Jones Day"}
   ],
   "institutions": [
     {"id": "Breitbart", "linkColor":"red", "color": "red", "textColor":"white", "textShadowColor":"black"},
-    {"id": "White House", "linkColor":"gray", "textColor":"white", "textShadowColor":"black", "useImageFileFill":true}
+    {"id": "White House", "linkColor":"darkblue", "textColor":"white", "textShadowColor":"black", "useImageFileFill":true},
+    {"id": "U.S. Senate", "linkColor":"gray", "color":"gray", "textColor":"white", "textShadowColor":"black"},
+    {"id": "U.S. House", "linkColor":"gray", "color":"gray", "textColor":"white", "textShadowColor":"black"},
+    {"id": "U.S. Military", "linkColor":"black", "color":"black", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Exxon", "linkColor":"darkred", "color":"darkred", "textColor":"white", "textShadowColor":"black"},
+    {"id": "RNC", "linkColor":"red", "color":"red", "textColor":"blue", "textShadowColor":"lightblue"},
+    {"id": "Goldman Sachs", "linkColor":"#64a8f0", "color":"#64a8f0", "textColor":"white", "textShadowColor":"gray"},
+    {"id": "Icahn Enterprises", "linkColor":"#31699c", "color":"#31699c", "textColor":"white", "textShadowColor":"gray"},
+    {"id": "Jones Day", "linkColor":"#15559c", "color":"#15559c", "textColor":"white", "textShadowColor":"gray"}
   ]
 }

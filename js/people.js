@@ -35,7 +35,10 @@ const appendCircles = (nodes, institutionColors) => {
   return nodes
       .append("circle")
         .attr("r", 10)
-        .style("stroke", function(d) { return institutionColors[d.institution]; })
+        .style("stroke", function(d) {
+          if(!d.institution) return 'gray';
+          return institutionColors[d.institution];
+        })
         .style("stroke-width", 1.5)
         .attr("fill", function(d){ return `url('#${d.id}')` } );
 }

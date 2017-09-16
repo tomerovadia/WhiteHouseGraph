@@ -36,11 +36,11 @@ const appendCirclesToinstitutions = (institutions) => {
       } )
       .attr('rx', (d) => {
         if(d.id === 'White House') return 120;
-        return 30;
+        return 37;
       })
       .attr('ry', (d) => {
         if(d.id === 'White House') return 81.75;
-        return 30;
+        return 37;
       })
       .style('stroke', (d) => {
         if(!(d.id === 'White House')) return 'black';

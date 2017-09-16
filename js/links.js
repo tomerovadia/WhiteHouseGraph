@@ -24,6 +24,7 @@ export const appendLinks = (visualization, linkData) => {
 
 const createCurrentEmploymentLinks = (people, institutionColors) => {
   return people.map((person) => {
+    if(!person.institution) return null;
     return {
       source: person.id,
       target: person.institution,
@@ -31,7 +32,7 @@ const createCurrentEmploymentLinks = (people, institutionColors) => {
       color: institutionColors[person.institution],
       current: true,
     };
-  });
+  }).filter((object) => object);
 }
 
 
