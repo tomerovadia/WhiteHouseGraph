@@ -22,7 +22,7 @@ export default (svg, container, width, height) => {
       .force("link", d3.forceLink().id(function(d) { return d.id; }) )
       .force("charge", d3.forceManyBody()
         .strength((d) => {
-          return d.id === 'White House' ? -20000 : -5000;
+          return d.id === 'White House' ? -15000 : -5000;
         })
         .distanceMin(15) )
       .force("center", d3.forceCenter(width/2, height/2) );

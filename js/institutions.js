@@ -28,10 +28,10 @@ const appendCirclesToInstitutions = (institutions, clustersObject) => {
         return d.useImageFileFill ? `url('#${d.id}')` : clusterColor;
       } )
       .attr('rx', (d) => {
-        return d.id === 'White House' ? 139.397 : 37;
+        return d.id === 'White House' ? 120 : 37;
       })
       .attr('ry', (d) => {
-        return d.id === 'White House' ? 100 : 37;
+        return d.id === 'White House' ? 81.75 : 37;
       })
       .style('stroke', (d) => {
         if(!(d.id === 'White House')) return 'black';

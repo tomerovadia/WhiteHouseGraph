@@ -5,7 +5,7 @@
     {"id": "Steven Mnuchin", "title":"Treasury Secretary", "institution": "White House", "useImageFileFill":true},
     {"id": "Rex W. Tillerson", "title":"Secretary of State", "institution": "White House", "useImageFileFill":true},
     {"id": "Steve Bannon", "title":"Chief Strategist", "institution": "White House", "useImageFileFill":true},
-    {"id": "Reince Priebus", "title":"Chief of Staff", "institution": "White House", "useImageFileFill":true},
+    {"id": "Reince Priebus", "title":"Chief of Staff", "useImageFileFill":true},
     {"id": "Jared Kushner", "title":"Interior Secretary", "institution": "White House", "useImageFileFill":true},
     {"id": "Ryan Zinke", "title":"Interior Secretary", "institution": "White House", "useImageFileFill":true},
     {"id": "Tom Bossert", "title":"Homeland Security Adviser", "institution": "White House", "useImageFileFill":true},
