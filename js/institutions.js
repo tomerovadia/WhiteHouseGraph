@@ -20,19 +20,19 @@ export const appendinstitutions = (svg, visualization, data, width, height) => {
       // })
 
   prepareCircleImages(svg, data);
-  appendCirclesToinstitutions(institutions);
-  appendTextToinstitutions(institutions);
+  appendCirclesToinstitutions(institutions, data.clusters);
+  appendTextToinstitutions(institutions, data.clusters);
 
   return institutions;
 }
 
-const appendCirclesToinstitutions = (institutions) => {
+const appendCirclesToinstitutions = (institutions, clusters) => {
   return institutions
       .append('ellipse')
       // .style('fill', (d) => d.color)
       .attr("fill", function(d){
-        if(d.color) return d.color;
-        return `url('#${d.id}')`;
+        const clusterColor = clusters[d.cluster].color;
+        return d.useImageFileFill ? `url('#${d.id}')` : clusterColor;
       } )
       .attr('rx', (d) => {
         if(d.id === 'White House') return 120;

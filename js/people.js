@@ -14,7 +14,7 @@ export const appendPeople = (visualization, data, institutionColors, width, heig
         .attr("class", "nodes")
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
-  const circles = appendCircles(nodes, institutionColors);
+  const circles = appendCircles(nodes, data.clusters, data.institutions);
 
   setListenersForCircleHighlighting(nodes, institutionColors);
 
@@ -31,13 +31,17 @@ export const appendPeople = (visualization, data, institutionColors, width, heig
 
 
 
-const appendCircles = (nodes, institutionColors) => {
+const appendCircles = (nodes, clusters, institutions) => {
+  const institutionsObject = arrayToObject(institutions);
+
   return nodes
       .append("circle")
         .attr("r", 10)
         .style("stroke", function(d) {
+          debugger
           if(!d.institution) return 'gray';
-          return institutionColors[d.institution];
+          const cluster = institutionsObject[d.institution].cluster;
+          return cluster ? clusters[cluster].color : 'gray';
         })
         .style("stroke-width", 1.5)
         .attr("fill", function(d){ return `url('#${d.id}')` } );
@@ -79,4 +83,17 @@ const appendTitleToPeople = (nodes) => {
          .attr("text-anchor", "middle")
          .style("text-shadow", "1px 1px 2px white")
          .attr("transform", "translate(0,30)");
+}
+
+
+
+
+const arrayToObject = (array) => {
+  const object = {};
+
+  array.forEach((el) => {
+    object[el.id] = el
+  })
+
+  return object;
 }

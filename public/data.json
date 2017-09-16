@@ -37,18 +37,29 @@
     {"person": "Jared Kushner", "institution": "Kushner Companies"}
   ],
   "institutions": [
-    {"id": "Breitbart", "linkColor":"red", "color": "red", "textColor":"white", "textShadowColor":"black"},
-    {"id": "White House", "linkColor":"darkblue", "textColor":"white", "textShadowColor":"black", "useImageFileFill":true},
-    {"id": "U.S. Senate", "linkColor":"gray", "color":"gray", "textColor":"white", "textShadowColor":"black"},
-    {"id": "U.S. House", "linkColor":"gray", "color":"gray", "textColor":"white", "textShadowColor":"black"},
-    {"id": "U.S. Military", "linkColor":"black", "color":"black", "textColor":"white", "textShadowColor":"black"},
-    {"id": "Exxon", "linkColor":"darkred", "color":"darkred", "textColor":"white", "textShadowColor":"black"},
-    {"id": "RNC", "linkColor":"red", "color":"red", "textColor":"blue", "textShadowColor":"lightblue"},
-    {"id": "Goldman Sachs", "linkColor":"#64a8f0", "color":"#64a8f0", "textColor":"white", "textShadowColor":"gray"},
-    {"id": "Icahn Enterprises", "linkColor":"#31699c", "color":"#31699c", "textColor":"white", "textShadowColor":"gray"},
-    {"id": "Jones Day", "linkColor":"#15559c", "color":"#15559c", "textColor":"white", "textShadowColor":"gray"},
-    {"id": "University of CA", "linkColor":"#8a673f", "color":"#8a673f", "textColor":"white", "textShadowColor":"#003663"},
-    {"id": "Atlantic Council", "linkColor":"#015498", "color":"#015498", "textColor":"white", "textShadowColor":"black"},
-    {"id": "Kushner Companies", "linkColor":"black", "color":"black", "textColor":"white", "textShadowColor":"black"}
-  ]
+    {"id": "Breitbart", "cluster": "Media"},
+    {"id": "U.S. Senate", "cluster": "Congress"},
+    {"id": "U.S. House", "cluster": "Congress"},
+    {"id": "U.S. Military", "cluster": "Military"},
+    {"id": "Exxon", "cluster": "Corporation"},
+    {"id": "RNC", "cluster": "Politics"},
+    {"id": "Goldman Sachs", "cluster": "Corporation"},
+    {"id": "Icahn Enterprises", "cluster": "Corporation"},
+    {"id": "Jones Day", "cluster": "Law"},
+    {"id": "University of CA", "cluster": "Academia"},
+    {"id": "Atlantic Council", "cluster": "Think Tank"},
+    {"id": "Kushner Companies", "cluster": "Corporation"},
+    {"id": "White House", "cluster":"Primary", "useImageFileFill":true}
+  ],
+  "clusters": {
+    "Congress": {"linkColor":"darkred", "color":"darkred", "textColor":"white", "textShadowColor":"black"},
+    "Military": {"linkColor":"black", "color":"yellow", "textColor":"white", "textShadowColor":"black"},
+    "Corporation": {"linkColor":"blue", "color":"blue", "textColor":"white", "textShadowColor":"black"},
+    "Media": {"linkColor":"blue", "color":"darkgreen", "textColor":"white", "textShadowColor":"black"},
+    "Academia": {"linkColor":"blue", "color":"orange", "textColor":"white", "textShadowColor":"black"},
+    "Law": {"linkColor":"blue", "color":"purple", "textColor":"white", "textShadowColor":"black"},
+    "Politics": {"linkColor":"blue", "color":"green", "textColor":"white", "textShadowColor":"black"},
+    "Think Tank": {"linkColor":"blue", "color":"magenta", "textColor":"white", "textShadowColor":"black"},
+    "Primary": {"linkColor":"darkblue", "color":"darkblue" , "textColor":"white", "textShadowColor":"black"}
+  }
 }

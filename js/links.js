@@ -18,8 +18,6 @@ export const appendLinks = (visualization, linkData) => {
         return `${d.source.split(' ').join('')}${d.target.split(' ').join('')}Link`;
       });
 
-    
-
     return links;
 }
 
@@ -55,4 +53,42 @@ const calculateStrokeWidth = (d) => {
 
 const calculateStrokeType = (d) => {
   return d.value > 60 ? 'dashed' : 'solid';
+}
+
+export const prepareIntraInstitutionLinkData = (data) => {
+  const intraInstitutionLinkData = [];
+  const institutions = data.institutions;
+
+  for(let i=0; i < institutions.length; i++){
+    let institution = institutions[i];
+    if(institution.cluster){
+      for(let j=i+1; j < institutions.length; j++){
+        let otherInstitution = institutions[j];
+        const institutionCluster = institution.cluster;
+        const otherInstitutionCluster = otherInstitution.cluster;
+        if(otherInstitutionCluster && (institutionCluster === otherInstitutionCluster)){
+          intraInstitutionLinkData.push({
+            source: institution,
+            target: otherInstitution,
+            value: 60,
+            color: 'purple',
+          });
+        }
+      }
+    }
+  }
+
+  return intraInstitutionLinkData;
+}
+
+
+export const appendIntraInstitutionLinks = (visualization, intraInstitutionLinkData) => {
+
+  return visualization.append("g")
+        .attr("class", "intraInstitutionLinks")
+      .selectAll("line.intraInstitution")
+      .data(intraInstitutionLinkData)
+      .enter()
+      .append("line")
+        .classed("intraInstitutionLink", true)
 }

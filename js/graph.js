@@ -1,7 +1,7 @@
 const d3 = require('d3');
 import { appendinstitutions } from './institutions.js';
 import { appendPeople } from './people.js';
-import { appendLinks, prepareLinkData } from './links.js';
+import { appendLinks, prepareLinkData, prepareIntraInstitutionLinkData, appendIntraInstitutionLinks } from './links.js';
 
 const getInstitutionColors = (data) => {
   const institutionColors = {};
@@ -26,8 +26,11 @@ export default (svg, container, width, height) => {
     if (error) throw error;
 
     const linkData = prepareLinkData(graph, institutionColors);
-
     const links = appendLinks(visualization, linkData);
+
+    const intraInstitutionLinkData = prepareIntraInstitutionLinkData(graph);
+    const intraInstitutionLinks = appendIntraInstitutionLinks(visualization, intraInstitutionLinkData);
+
     const institutions = appendinstitutions(svg, visualization, graph, width, height);
     const nodes = appendPeople(visualization, graph, institutionColors, width, height);
 
@@ -49,7 +52,7 @@ export default (svg, container, width, height) => {
 
     simulation
         .force("link")
-        .links(linkData)
+        .links(linkData.concat(intraInstitutionLinkData))
         .distance((d) => d.value)
         .strength((d) => d.current === true ? 3.5 : 3.5);
 
