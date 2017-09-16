@@ -1,0 +1,25 @@
+{
+  "reporters": [
+    {"id": "Anna Palmer", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/2014/02/25/annaheadshot_288.jpg"},
+    {"id": "Jake Sherman", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/2014/02/25/jakeheadshot_288.jpg"},
+    {"id": "Alex Isenstadt", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/2014/08/15/20140813js_alex_isenstadt_015.jpg"},
+    {"id": "Hadas Gold", "publication": "White House", "img_url": "http://images.tritondigitalcms.com/6616/sites/238/2017/05/02194043/hadas_gold_005.jpg"},
+    {"id": "John Bresnahan", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/johnbredgnahan.jpg"},
+    {"id": "Josh Gerstein", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/reporter/online_josh_gerstein.jpg"},
+    {"id": "Seung Min Kim", "publication": "White House", "img_url": "http://images.politico.com/global/arena/100108_seungminkim_photo.jpg"},
+    {"id": "Burgess Everett", "publication": "White House", "img_url": "http://s3-origin-images.politico.com/2013/10/24/20131024-burgess-everett11-web.jpg"},
+    {"id": "Maggie Haberman", "publication": "White House", "img_url": "https://longform.org/uploads/post/key_image/11006/podcast_maggie.jpg"},
+    {"id": "Glenn Thrush", "publication": "White House", "img_url": "http://images.politico.com/global/081211_glennthrush.jpg"},
+    {"id": "Shane Goldmacher", "publication": "White House", "img_url": "https://www.nationaljournal.com/media/media/2013/09/25/author-146_PuIAtZl.jpg.2600x2600.square.jpg"},
+    {"id": "Jonathan Martin", "publication": "White House", "img_url": "http://www.washingtonspeakers.com/images/photos/sp1/7436.jpg"},
+    {"id": "Ken Vogel", "publication": "White House", "img_url": "http://www.nytco.com/wp-content/uploads/Ken-Vogel.jpg"},
+    {"id": "Peter Baker", "publication": "White House", "img_url": "http://www.nytco.com/wp-content/uploads/peter-baker.jpg"},
+    {"id": "Elisabeth Bumiller", "publication": "White House", "img_url": "https://images.gr-assets.com/authors/1411083412p5/27614.jpg"}
+],
+  "employments": [
+
+  ],
+  "institutions": [
+    {"id": "White House", "color": "gray", "textColor":"white", "textShadowColor":"black", "img_url": "http://pbs.twimg.com/profile_images/677177503694237697/y6yTzWn6_reasonably_small.png"}
+  ]
+}

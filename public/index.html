@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Journalist Graph - A project by Tomer Ovadia</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.ico?v=3">
+    <style>
+
+    .links line {
+      stroke: #999;
+      stroke-opacity: 0.6;
+    }
+
+    .nodes circle {
+      stroke: #fff;
+      stroke-width: 1.5px;
+    }
+
+    .dot circle {
+      fill: lightsteelblue;
+      stroke: steelblue;
+      stroke-width: 1.5px;
+    }
+
+    .dot circle.dragging {
+      fill: red;
+      stroke: brown;
+    }
+
+    .axis line {
+      fill: none;
+      stroke: #ddd;
+      shape-rendering: crispEdges;
+      vector-effect: non-scaling-stroke;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/introjs.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <!-- <div id='intro-modal-overlay'>
+      <div id='intro-modal-box'></div>
+    </div> -->
+    <!-- <div data-intro='Hello step one!' id='test'></div> -->
+    <script src="./bundle.js"></script>
+  </body>
+</html>
