@@ -87,7 +87,7 @@ const appendNameToPeople = (nodes) => {
            return d.institution ? 1 : 0.5;
          })
          .attr("text-anchor", "middle")
-         .style("text-shadow", "1px 1px 2px white")
+         .style("text-shadow", "2px 2px 1px white, -2px -2px 1px white")
          .attr("transform", "translate(0,20)");
 }
 
@@ -102,6 +102,6 @@ const appendTitleToPeople = (nodes) => {
          })
          .style("font-weight", "500")
          .attr("text-anchor", "middle")
-         .style("text-shadow", "1px 1px 2px white")
+         .style("text-shadow", "2px 2px 1px white, -2px -2px 1px white")
          .attr("transform", "translate(0,30)");
 }
