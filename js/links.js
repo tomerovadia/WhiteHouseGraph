@@ -51,11 +51,11 @@ const createPreviousEmploymentsLinks = (employments, getClusterData) => {
 }
 
 const calculateStrokeWidth = (d) => {
-  return d.value > 50 ? 1 : 3;
+  return d.value > 40 ? 1.5 : 2.5;
 }
 
 const calculateStrokeType = (d) => {
-  return d.value > 50 ? 'dashed' : 'solid';
+  return d.value > 40 ? 'dashed' : 'solid';
 }
 
 export const prepareIntraInstitutionLinkData = (data) => {
@@ -73,7 +73,7 @@ export const prepareIntraInstitutionLinkData = (data) => {
           intraInstitutionLinkData.push({
             source: institution,
             target: otherInstitution,
-            value: 120,
+            value: 80,
           });
         }
       }

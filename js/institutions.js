@@ -1,6 +1,6 @@
 const d3 = require('d3');
 
-const institutionRadius = 37;
+const institutionRadius = 27;
 
 export const appendinstitutions = (svg, visualization, data, width, height, clustersObject) => {
 
@@ -30,10 +30,10 @@ const appendCirclesToInstitutions = (institutions, clustersObject) => {
         return d.useImageFileFill ? `url('#${d.id}')` : clusterColor;
       } )
       .attr('rx', (d) => {
-        return d.id === 'White House' ? 120 : institutionRadius;
+        return d.id === 'White House' ? 75 : institutionRadius;
       })
       .attr('ry', (d) => {
-        return d.id === 'White House' ? 81.75 : institutionRadius;
+        return d.id === 'White House' ? 51.09375 : institutionRadius;
       })
       .style('stroke', (d) => {
         if(!(d.id === 'White House')) return 'black';
@@ -63,7 +63,7 @@ const appendTextToinstitutions = (institutions) => {
       .style('line-height', 'normal')
       .style('display', 'block')
       .style('font-family', 'Roboto')
-      .style("font-size", "11px")
+      .style("font-size", "7px")
       .style("color", (d) => d.textColor || "white")
       .style("font-weight", "600")
       .style("text-shadow", (d) => d.textShadowColor ? `1px 1px 2px ${d.textShadowColor}` : "1px 1px 2px black")

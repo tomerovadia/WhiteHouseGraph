@@ -22,7 +22,7 @@ export default (svg, container, width, height) => {
       .force("link", d3.forceLink().id(function(d) { return d.id; }) )
       .force("charge", d3.forceManyBody()
         .strength((d) => {
-          return d.id === 'White House' ? -15000 : -3000;
+          return d.id === 'White House' ? -15000 : -7000;
         })
         .distanceMin(15) )
       .force("center", d3.forceCenter(width/2 + 200, height/2 - 100) );
@@ -65,11 +65,16 @@ export default (svg, container, width, height) => {
         .nodes(graph.people.concat(graph.institutions))
         .on("tick", ticked);
 
+    simulation.
+      force("collide", d3.forceCollide()
+                          .radius(30)
+                          .iterations(2))
+
     simulation
         .force("link")
         .links(linkData.concat(intraInstitutionLinkData))
         .distance((d) => d.value)
-        .strength((d) => d.current === true ? 3.5 : 3.5);
+        .strength((d) => d.current === true ? 8 : 6);
 
     simulation.alpha(0.1)
     simulation.alphaDecay(0.008)
