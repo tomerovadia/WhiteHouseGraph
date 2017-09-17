@@ -43,7 +43,7 @@ const createPreviousEmploymentsLinks = (employments, getClusterData) => {
     return {
       source: employment.person,
       target: employment.institution,
-      value: 80,
+      value: 55,
       color: getClusterData(employment.institution).color,
       current: false,
     };
@@ -51,11 +51,11 @@ const createPreviousEmploymentsLinks = (employments, getClusterData) => {
 }
 
 const calculateStrokeWidth = (d) => {
-  return d.value > 60 ? 1 : 3;
+  return d.value > 50 ? 1 : 3;
 }
 
 const calculateStrokeType = (d) => {
-  return d.value > 60 ? 'dashed' : 'solid';
+  return d.value > 50 ? 'dashed' : 'solid';
 }
 
 export const prepareIntraInstitutionLinkData = (data) => {
