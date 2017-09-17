@@ -38,7 +38,7 @@
     {"id": "Mike Mulvaney", "title":"OMB Director", "institution": "White House", "useImageFileFill":true},
     {"id": "Dan Coats", "title":"DNI Director", "institution": "White House", "useImageFileFill":true},
     {"id": "Robert Lighthizer", "title":"US Trade Representative", "institution": "White House", "useImageFileFill":true},
-    {"id": "Kevin Hassett", "title":"Chair of the Council of Economic Advisers", "institution": "White House", "useImageFileFill":true}
+    {"id": "Kevin Hassett", "title":"CEA Chair", "institution": "White House", "useImageFileFill":true}
   ],
   "employments": [
     {"person": "Steve Bannon", "institution": "Breitbart"},
