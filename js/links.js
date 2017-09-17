@@ -73,7 +73,7 @@ export const prepareIntraInstitutionLinkData = (data) => {
           intraInstitutionLinkData.push({
             source: institution,
             target: otherInstitution,
-            value: 60,
+            value: 120,
           });
         }
       }
