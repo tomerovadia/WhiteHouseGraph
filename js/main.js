@@ -10,7 +10,7 @@ const config = {
 }
 
 export const renderVisualizationWithSettings = () => {
-  renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "trump.json", config);
+  renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "trump.json", true);
 }
 
 renderCanvass(config);

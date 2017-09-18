@@ -9,7 +9,9 @@ export const appendLinks = (visualization, linkData, peopleObject) => {
   const links = visualization.select('.links').selectAll("line")
     .data(linkData, (d) => `${d.source}${d.target}`);
 
-  links.exit().transition().remove();
+  links.exit().transition()
+    .style('stroke-opacity', 0)
+    .remove();
 
   const newLinks = links.enter().append("line");
 
@@ -24,7 +26,7 @@ export const appendLinks = (visualization, linkData, peopleObject) => {
         return `${d.source.split(' ').join('')}${d.target.split(' ').join('')}Link`;
       });
 
-    return newLinks;
+    return visualization.selectAll('line');
 }
 
 const createCurrentEmploymentLinks = (people, getClusterData) => {

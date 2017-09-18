@@ -27,7 +27,7 @@ export const appendPeople = (visualization, data, width, height, employmentsObje
   appendNameToPeople(newNodes);
   appendTitleToPeople(newNodes);
 
-  return newNodes;
+  return d3.selectAll('g.nodes');
 }
 
 

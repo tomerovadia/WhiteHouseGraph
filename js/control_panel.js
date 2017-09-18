@@ -12,11 +12,11 @@ const toggleAdministration = (config) => {
   return () => {
     switch(administration){
       case 'trump':
-        renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "obama.json");
+        renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "obama.json", false);
         administration = 'obama';
       break
       case 'obama':
-        renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "trump.json");
+        renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "trump.json", false);
         administration = 'trump';
     }
   }

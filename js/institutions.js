@@ -7,7 +7,7 @@ export const appendinstitutions = (svg, visualization, data, width, height, clus
   const institutions = visualization.selectAll('g.institution')
         .data(data.institutions, (d) => d.id);
 
-  institutions.exit().transition().remove();
+  institutions.exit().transition().attr('r',0).remove();
 
   const newInstitutions = institutions.enter().append('g');
 
@@ -20,7 +20,7 @@ export const appendinstitutions = (svg, visualization, data, width, height, clus
   appendCirclesToInstitutions(newInstitutions, clustersObject);
   appendTextToinstitutions(newInstitutions);
 
-  return newInstitutions;
+  return visualization.selectAll('g.institution');
 }
 
 const appendCirclesToInstitutions = (institutions, clustersObject) => {
