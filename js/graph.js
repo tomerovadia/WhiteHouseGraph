@@ -15,8 +15,7 @@ const arrayToObject = (array, key) => {
 
 export const renderVisualization = (svg, container, width, height, data_file) => {
 
-  const visualization = container.append('g')
-    .classed('visualization', true);
+  const visualization = d3.select('.visualization');
 
   var simulation = d3.forceSimulation()
       .force("link", d3.forceLink().id(function(d) { return d.id; }) )

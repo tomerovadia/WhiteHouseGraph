@@ -6,24 +6,28 @@ export const appendPeople = (visualization, data, width, height, employmentsObje
   const nodes = visualization
       .selectAll("g.nodes")
       .data(data.people, (d) => d.id)
-      .enter()
-      .append("g")
+
+  nodes.exit().transition().remove();
+
+  const newNodes = nodes.enter().append("g")
+
+  newNodes
         .attr('id', (d) => `${d.id.split(' ').join('')}Node`)
         .attr("class", "nodes")
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
-  const circles = appendCircles(nodes, data, employmentsObject, getClusterData);
+  const circles = appendCircles(newNodes, data, employmentsObject, getClusterData);
 
-  setListenersForCircleHighlighting(nodes, employmentsObject, getClusterData);
+  setListenersForCircleHighlighting(newNodes, employmentsObject, getClusterData);
 
   // Hover text
   circles.append("title")
             .text(function(d) { return d.id; });
 
-  appendNameToPeople(nodes);
-  appendTitleToPeople(nodes);
+  appendNameToPeople(newNodes);
+  appendTitleToPeople(newNodes);
 
-  return nodes;
+  return newNodes;
 }
 
 

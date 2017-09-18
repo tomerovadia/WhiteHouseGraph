@@ -4,21 +4,23 @@ const institutionRadius = 27;
 
 export const appendinstitutions = (svg, visualization, data, width, height, clustersObject) => {
 
-
   const institutions = visualization.selectAll('g.institution')
-      .data(data.institutions, (d) => d.id)
-      .enter()
-      .append('g')
-        .attr('id', (d) => d.id)
+        .data(data.institutions, (d) => d.id);
+
+  institutions.exit().transition().remove();
+
+  const newInstitutions = institutions.enter().append('g');
+
+  newInstitutions
         .classed('institution', true)
-        .attr('id', (d) => `${d.id}Institution`)
+        .attr('id', (d) => `${d.id} Institution`)
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
   prepareCircleImages(svg, data);
-  appendCirclesToInstitutions(institutions, clustersObject);
-  appendTextToinstitutions(institutions);
+  appendCirclesToInstitutions(newInstitutions, clustersObject);
+  appendTextToinstitutions(newInstitutions);
 
-  return institutions;
+  return newInstitutions;
 }
 
 const appendCirclesToInstitutions = (institutions, clustersObject) => {

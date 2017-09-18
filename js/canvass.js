@@ -51,4 +51,10 @@ export const renderCanvass = (config) => {
   function zoomed() {
     container.attr("transform", d3.event.transform);
   }
+
+  const visualization = container.append('g')
+    .classed('visualization', true);
+
+  visualization.append("g")
+        .attr("class", "links")
 }

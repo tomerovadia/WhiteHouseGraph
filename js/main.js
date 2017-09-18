@@ -1,16 +1,16 @@
 const d3 = require('d3');
 var introJs = require("intro.js");
 import {renderCanvass} from './canvass';
-import { renderVisualization } from './graph';
+import { renderVisualization, createForceLayout } from './graph';
 import { prepareControlPanel, toggleAdministration } from './control_panel';
 
-export const config = {
+const config = {
   svgHeight: 5000,
   svgWidth: 5000,
 }
 
 export const renderVisualizationWithSettings = () => {
-  renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "trump.json");
+  renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "trump.json", config);
 }
 
 renderCanvass(config);

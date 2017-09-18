@@ -6,11 +6,14 @@ export const prepareLinkData = (data, getClusterData, peopleObject) => {
 }
 
 export const appendLinks = (visualization, linkData, peopleObject) => {
-  const links = visualization.append("g")
-      .attr("class", "links")
-    .selectAll("line")
-    .data(linkData)
-    .enter().append("line")
+  const links = visualization.select('.links').selectAll("line")
+    .data(linkData, (d) => `${d.source}${d.target}`);
+
+  links.exit().transition().remove();
+
+  const newLinks = links.enter().append("line");
+
+  newLinks
       .attr("stroke-width", calculateStrokeWidth)
       .attr('class', calculateStrokeType)
       .style("stroke", (d) => d.color)
@@ -21,7 +24,7 @@ export const appendLinks = (visualization, linkData, peopleObject) => {
         return `${d.source.split(' ').join('')}${d.target.split(' ').join('')}Link`;
       });
 
-    return links;
+    return newLinks;
 }
 
 const createCurrentEmploymentLinks = (people, getClusterData) => {
