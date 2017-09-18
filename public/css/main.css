@@ -4,6 +4,15 @@ h3 {
   margin: 10px 0;
 }
 
+#control-panel {
+  height: 100px;
+  width: 100px;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  background-color: purple;
+}
+
 
 /* D3 Elements */
 

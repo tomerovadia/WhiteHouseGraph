@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './js/canvass.js',
+  entry: './js/main.js',
   output: {
     filename: './public/bundle.js',
   },

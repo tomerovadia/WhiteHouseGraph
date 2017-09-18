@@ -13,7 +13,7 @@ const arrayToObject = (array, key) => {
   return object;
 }
 
-export default (svg, container, width, height) => {
+export const renderVisualization = (svg, container, width, height, data_file) => {
 
   const visualization = container.append('g')
     .classed('visualization', true);
@@ -27,7 +27,7 @@ export default (svg, container, width, height) => {
         .distanceMin(15) )
       .force("center", d3.forceCenter(width/2 + 200, height/2 - 100) );
 
-  d3.json("data.json", function(error, graph) {
+  d3.json(data_file, function(error, graph) {
 
     const institutionsObject = arrayToObject(graph.institutions, 'id');
     const clustersObject = arrayToObject(graph.clusters, 'id');

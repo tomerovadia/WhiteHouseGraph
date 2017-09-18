@@ -1,0 +1,41 @@
+{
+  "people": [
+    {"id": "Hillary Clinton", "title":"Defense Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Robert Gates", "title":"Secretary of State", "institution": "White House", "useImageFileFill":true},
+    {"id": "Timothy Geithner", "title":"Treasury Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Ken Salazar", "title":"Interior Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Tom Vilsack", "title":"Agriculture Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Gary Locke", "title":"Commerce Secretary", "institution": "White House", "useImageFileFill":true},
+    {"id": "Eric Holder", "title":"Attorney General", "institution": "White House", "useImageFileFill":true}
+  ],
+  "employments": [
+    {"person": "Eric Holder", "institution": "Covington & Burling"},
+    {"person": "Tom Vilsack", "institution": "State Government"},
+    {"person": "Gary Locke", "institution": "Davis Wright Tremaine LLP"},
+    {"person": "Ken Salazar", "institution": "US Senate"},
+    {"person": "Timothy Geithner", "institution": "Federal Reserve"},
+    {"person": "Robert Gates", "institution": "Federal Government"},
+    {"person": "Hillary Clinton", "institution": "US Senate"}
+  ],
+  "institutions": [
+    {"id": "US Senate", "cluster": "Government"},
+    {"id": "Davis Wright Tremaine LLP", "cluster": "Law"},
+    {"id": "State Government", "cluster": "Government"},
+    {"id": "Federal Reserve", "cluster": "Government"},
+    {"id": "Covington & Burling", "cluster": "Law"},
+    {"id": "Federal Government", "cluster": "Government"},
+    {"id": "White House", "cluster":"Primary", "useImageFileFill":true}
+  ],
+  "clusters": [
+    {"id": "Government", "linkColor":"#757575", "color":"#757575", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Military", "linkColor":"black", "color":"black", "textColor":"#ffd531", "textShadowColor":"white"},
+    {"id": "Corporation", "linkColor":"blue", "color":"blue", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Media", "linkColor":"darkgreen", "color":"darkgreen", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Academia", "linkColor":"darkred", "color":"darkred", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Law", "linkColor":"#795548", "color":"#795548", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Politics", "linkColor":"red", "color":"red", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Think Tank", "linkColor":"#c6c92e", "color":"#c6c92e", "textColor":"white", "textShadowColor":"black"},
+    {"id": "Medical", "linkColor":"lightblue", "color":"lightblue" , "textColor":"black", "textShadowColor":"white"},
+    {"id": "Primary", "linkColor":"darkblue", "color":"darkblue" , "textColor":"white", "textShadowColor":"black"}
+  ]
+}
