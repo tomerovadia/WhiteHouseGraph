@@ -2,7 +2,7 @@ const d3 = require('d3');
 
 const institutionRadius = 27;
 
-export const appendinstitutions = (svg, visualization, data, width, height, clustersObject) => {
+export const appendinstitutions = (svg, visualization, data, width, height, clustersObject, dataFile) => {
 
   const institutions = visualization.selectAll('g.institution')
         .data(data.institutions, (d) => d.id);
@@ -13,33 +13,35 @@ export const appendinstitutions = (svg, visualization, data, width, height, clus
 
   newInstitutions
         .classed('institution', true)
+        .classed('main-node', (d) => {
+          return d.id === 'White House' ? true : false
+        })
         .attr('id', (d) => `${d.id} Institution`)
         .attr('transform', 'translate(' + height*(-2/5) + ',' + width*(-2/5) + ')');
 
-  prepareCircleImages(svg, data);
-  appendCirclesToInstitutions(newInstitutions, clustersObject);
+  // prepareCircleImages(data);
+  appendCirclesToInstitutions(newInstitutions, clustersObject, dataFile);
   appendTextToinstitutions(newInstitutions);
 
   return visualization.selectAll('g.institution');
 }
 
-const appendCirclesToInstitutions = (institutions, clustersObject) => {
+const appendCirclesToInstitutions = (institutions, clustersObject, dataFile) => {
 
   return institutions
       .append('ellipse')
       .attr("fill", function(d){
+        if(d.id === 'White House') return `url('#${dataFile}')`;
         const clusterColor = clustersObject[d.cluster].color;
         return d.useImageFileFill ? `url('#${d.id}')` : clusterColor;
-      } )
+      })
       .attr('rx', (d) => {
-        return d.id === 'White House' ? 75 : institutionRadius;
+        return d.id === 'White House' ? 50 : institutionRadius;
       })
       .attr('ry', (d) => {
-        return d.id === 'White House' ? 51.09375 : institutionRadius;
+        return d.id === 'White House' ? 50 : institutionRadius;
       })
-      .style('stroke', (d) => {
-        if(!(d.id === 'White House')) return 'black';
-      })
+      .style('stroke', (d) => 'black')
       .style('stroke-width', (d) => {
         if(d.id === 'White House') return -5;
         return 2;
@@ -72,31 +74,4 @@ const appendTextToinstitutions = (institutions) => {
       .html((d) => {
         if(!(d.id === 'White House')) return d.id;
       })
-}
-
-const prepareCircleImages = (svg, data) => {
-  const defs = svg.append("defs").attr("id", "imgdefs");
-
-  const patterns = defs
-      .selectAll('pattern')
-      .data(data.people.concat(data.institutions))
-      .enter()
-      .append("pattern")
-        .attr("id", function(d){ return d.id } )
-        .attr("height", 1)
-        .attr("width", 1)
-        .attr("viewBox", "0 0 100 100")
-        .attr("preserveAspectRatio", "none")
-        .attr("x", "0")
-        .attr("y", "0");
-
-  patterns
-      .append("image")
-        .attr("preserveAspectRatio", "none")
-        .attr("height", 100)
-        .attr("width", 100)
-        .attr("xlink:href", function(d){
-          if(d.img_url) return d.img_url;
-          if(d.useImageFileFill) return `../mugshots/${d.id}.jpg`;
-        });
 }

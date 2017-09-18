@@ -3,6 +3,7 @@ var introJs = require("intro.js");
 import {renderCanvass} from './canvass';
 import { renderVisualization, createForceLayout } from './graph';
 import { prepareControlPanel, toggleAdministration } from './control_panel';
+import { prepareImagePatterns } from './image_patterns';
 
 const config = {
   svgHeight: 5000,
@@ -10,9 +11,10 @@ const config = {
 }
 
 export const renderVisualizationWithSettings = () => {
-  renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "obama.json", true);
+  renderVisualization(d3.select('svg'), d3.select('.container'), config.svgWidth, config.svgHeight, "trump", true);
 }
 
+prepareImagePatterns();
 renderCanvass(config);
 renderVisualizationWithSettings();
 prepareControlPanel(config);

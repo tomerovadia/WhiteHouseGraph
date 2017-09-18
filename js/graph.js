@@ -30,11 +30,11 @@ const ticked = (institutions, links, nodes) => {
 
 }
 
-export const renderVisualization = (svg, container, width, height, data_file) => {
+export const renderVisualization = (svg, container, width, height, dataFile) => {
 
   const visualization = d3.select('.visualization');
 
-  d3.json(data_file, function(error, graph) {
+  d3.json(`${dataFile}.json`, function(error, graph) {
 
     if (error) throw error;
 
@@ -47,7 +47,7 @@ export const renderVisualization = (svg, container, width, height, data_file) =>
       return clustersObject[institutionsObject[institution].cluster];
     }
 
-    const institutions = appendinstitutions(svg, visualization, graph, width, height, clustersObject);
+    const institutions = appendinstitutions(svg, visualization, graph, width, height, clustersObject, dataFile);
 
     const linkData = prepareLinkData(graph, getClusterData);
     const links = appendLinks(visualization, linkData, peopleObject);

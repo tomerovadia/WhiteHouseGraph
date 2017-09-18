@@ -57,4 +57,6 @@ export const renderCanvass = (config) => {
 
   visualization.append("g")
         .attr("class", "links")
+
+  svg.append("defs").attr("id", "imgdefs");
 }
