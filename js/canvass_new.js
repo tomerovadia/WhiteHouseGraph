@@ -1,4 +1,5 @@
-const d3 = require('d3');
+import * as d3 from "d3";
+
 var introJs = require("intro.js");
 // import { renderVisualization } from './graph';
 // import { prepareControlPanel, toggleAdministration } from './control_panel';

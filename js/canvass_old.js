@@ -1,4 +1,5 @@
-const d3 = require('d3');
+import * as d3 from "d3";
+
 import renderGraph from './graph';
 
 // var margin = {top: -5, right: -5, bottom: -5, left: -5},

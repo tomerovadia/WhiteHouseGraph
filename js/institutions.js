@@ -1,6 +1,5 @@
-const d3 = require('d3');
-import {Selection, select } from 'd3-selection';
-import {transition} from 'd3-transition';
+import * as d3 from "d3";
+
 
 const institutionRadius = 27;
 
