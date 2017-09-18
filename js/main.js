@@ -1,4 +1,6 @@
 const d3 = require('d3');
+import {Selection, select } from 'd3-selection';
+import {transition} from 'd3-transition';
 import initiateTour from './tour';
 import {renderCanvass} from './canvass';
 import { renderVisualization, createForceLayout } from './graph';
