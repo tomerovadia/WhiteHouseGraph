@@ -7,7 +7,7 @@ export const appendPeople = (visualization, data, width, height, employmentsObje
       .selectAll("g.nodes")
       .data(data.people, (d) => d.id)
 
-  nodes.exit().transition().remove();
+  nodes.exit().transition().attr('r', 0).remove();
 
   const newNodes = nodes.enter().append("g")
 
